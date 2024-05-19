@@ -9,6 +9,7 @@
 }
 
 .sampleStyle {
+  float: left;
   width: 30px;
   height: 30px;
   background: url(~/src/assets/images/icons.png) no-repeat;
