@@ -34,21 +34,21 @@ const Home = () => {
   // const newBoard = structuredClone(board);
   // newBoard[y][x] = bomb;
 
-  const clickHandler = (x: number, y: number) => {
-    console.log(x, y);
-    const newbombMap = structuredClone(bombMap);
-    let a = 0;
-    if (a === 0) {
-      for (let n = 0; n < 10; n++) {
-        const rx = Math.floor(Math.random() * 9);
-        const ry = Math.floor(Math.random() * 9);
-        console.log(rx, ry);
-        newbombMap[rx][ry] = 11;
-        a++;
-      }
-    }
-    setBombMap(newbombMap);
-  };
+  // const clickHandler = (x: number, y: number) => {
+  //   console.log(x, y);
+  //   const newbombMap = structuredClone(bombMap);
+  //   let a = 0;
+  //   if (a === 0) {
+  //     for (let n = 0; n < 10; n++) {
+  //       const rx = Math.floor(Math.random() * 9);
+  //       const ry = Math.floor(Math.random() * 9);
+  //       console.log(rx, ry);
+  //       newbombMap[rx][ry] = 11;
+  //       a++;
+  //     }
+  //   }
+  //   setBombMap(newbombMap);
+  // };
 
   //   const [samplePos, setSamplePos] = useState(0);
   //   console.log(samplePos);
@@ -58,6 +58,7 @@ const Home = () => {
         {userInputs.map((row, y) =>
           row.map((color, x) => <div className={styles.cellStyle} key={`${x}-${y}`} />),
         )}
+        <div className={styles.bombstyle} />
 
         {/* <div
         className={styles.sampleStyle}
