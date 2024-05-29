@@ -8,12 +8,12 @@
   padding: 0 0.5rem;
 }
 
-.sampleStyle {
+/* .sampleStyle {
   float: left;
   width: 30px;
   height: 30px;
   background: url(~/src/assets/images/icons.png) no-repeat;
-}
+} */
 
 .boardStyle {
   width: 270px;
@@ -29,14 +29,102 @@
   border-color: black;
 }
 
-.stoneStyle {
+.bombStyle {
+  float: left;
   width: 30px;
   height: 30px;
-  background-color: dimgrey;
+  background: url(~/src/assets/images/icons.png) no-repeat;
 }
 
-.keyboardStyle {
-  width: 310px;
+.numberStyle {
+  float: left;
+  width: 30px;
+  height: 30px;
+}
+
+.flagStyle {
+  float: left;
+  width: 30px;
+  height: 30px;
+  background: url(~/src/assets/images/icons.png) no-repeat;
+}
+
+.bigStyle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
   height: 400px;
-  background-color: black;
+  background-color: gray;
+}
+
+.topBoard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 270px;
+  height: 70px;
+  background-color: rgb(49 54 59);
+}
+
+.fStyle {
+  float: left;
+  width: 30px;
+  height: 30px;
+  background: url(~/src/assets/images/icons.png) no-repeat;
+}
+
+.faceStyle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin-top: -20px;
+  background-color: rgb(252 252 252);
+}
+
+.leftStyle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 30px;
+  margin-top: -30px;
+  margin-right: 150px;
+  background-color: rgb(252 252 252);
+}
+
+.rigthStyle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 30px;
+  margin-top: -30px;
+  margin-left: 150px;
+  background-color: rgb(252 252 252);
+}
+
+.centerStyle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+  height: 20px;
+  background-color: gray;
+}
+
+.topsell {
+  float: left;
+  width: 30px;
+  height: 30px;
+  border: 1px solid;
+  border-color: rgb(247 240 240);
 }
