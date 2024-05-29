@@ -57,7 +57,7 @@ const Home = () => {
 
   const clickHandler = (x: number, y: number) => {
     console.log(x, y);
-    const newbombMap = structuredClone(bombMap);
+    const newbombMap = structuredClone(board);
     let a = 0;
     if (a === 0) {
       for (let n = 0; n < 10; n++) {
@@ -70,6 +70,7 @@ const Home = () => {
     }
     setBombMap(newbombMap);
   };
+  const canboard = structuredClone(board);
 
   // const [samplePos, setSamplePos] = useState(0);
   // console.log(samplePos);
@@ -84,9 +85,13 @@ const Home = () => {
         <div className={styles.centerStyle} />
 
         <div className={styles.boardStyle}>
-          {board.map((row, x) =>
+          {canboard.map((row, x) =>
             row.map((cell, y) => (
-              <div className={styles.cellStyle} key={`${x}-${y}`}>
+              <div
+                className={styles.cellStyle}
+                key={`${x}-${y}`}
+                onClick={() => clickHandler(x, y)}
+              >
                 {cell !== 0 && (
                   <div
                     className={styles.bombStyle}
