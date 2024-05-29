@@ -39,7 +39,7 @@ const Home = () => {
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 1, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -87,7 +87,13 @@ const Home = () => {
           {board.map((row, x) =>
             row.map((cell, y) => (
               <div className={styles.cellStyle} key={`${x}-${y}`}>
-                {cell !== 0 && <div className={styles.bombStyle} key={`${x}-${y}`} />}
+                {cell !== 0 && (
+                  <div
+                    className={styles.bombStyle}
+                    key={`${x}-${y}`}
+                    style={{ backgroundPosition: `-${30 * cell - 30}px 0px` }}
+                  />
+                )}
               </div>
             )),
           )}
@@ -98,5 +104,3 @@ const Home = () => {
 };
 
 export default Home;
-
-// style={{ background: `-${30 * bombCounter}px 0px` }}
