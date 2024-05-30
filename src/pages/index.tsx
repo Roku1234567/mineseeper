@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from './index.module.css';
-const direction = [
+const directions = [
   [-1, -1],
   [-1, 0],
   [-1, 1],
@@ -56,21 +56,34 @@ const Home = () => {
   // newBoard[y][x] = bomb;
 
   const clickHandler = (x: number, y: number) => {
+    // const newBoard = structuredClone(board);
+    // newBoard[y][x] = bombcount;
+
+    // for (const direction of directions) {
+    //   const dx = direction[0];
+    //   const dy = direction[1];
+
+    //   if (board[y + 1 * dy] !== undefined && board[y + 1 * dy][x + 1 * dx] === 3 - bomb) {
+
     console.log(x, y);
-    const newbombMap = structuredClone(board);
-    let a = 0;
-    if (a === 0) {
+    const newbombMap = structuredClone(bombMap);
+    console.log(bombMap.flat());
+    console.log(newbombMap.flat().includes(11));
+
+    if (newbombMap.flat().includes(11) === false) {
       for (let n = 0; n < 10; n++) {
         const rx = Math.floor(Math.random() * 9);
         const ry = Math.floor(Math.random() * 9);
+        if (newbombMap[rx][ry] === 11) {
+          n--;
+        }
+
         console.log(rx, ry);
         newbombMap[rx][ry] = 11;
-        a++;
       }
     }
     setBombMap(newbombMap);
   };
-  const canboard = structuredClone(board);
 
   // const [samplePos, setSamplePos] = useState(0);
   // console.log(samplePos);
@@ -85,7 +98,7 @@ const Home = () => {
         <div className={styles.centerStyle} />
 
         <div className={styles.boardStyle}>
-          {canboard.map((row, x) =>
+          {bombMap.map((row, x) =>
             row.map((cell, y) => (
               <div
                 className={styles.cellStyle}
