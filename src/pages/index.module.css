@@ -125,6 +125,14 @@
   float: left;
   width: 30px;
   height: 30px;
+  background-color: rgb(70 70 75);
   border: 1px solid;
-  border-color: rgb(247 240 240);
+  border-color: rgb(0 0 0);
+}
+
+.cell {
+  float: left;
+  width: 30px;
+  height: 30px;
+  background-color: black;
 }

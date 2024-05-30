@@ -59,16 +59,20 @@ const Home = () => {
     // const newBoard = structuredClone(board);
     // newBoard[y][x] = bombcount;
 
-    // for (const direction of directions) {
-    //   const dx = direction[0];
-    //   const dy = direction[1];
-
     //   if (board[y + 1 * dy] !== undefined && board[y + 1 * dy][x + 1 * dx] === 3 - bomb) {
 
     console.log(x, y);
     const newbombMap = structuredClone(bombMap);
     console.log(bombMap.flat());
     console.log(newbombMap.flat().includes(11));
+    // for (const direction of directions) {
+    //   const dx = direction[0];
+    //   const dy = direction[1];
+    //   let narebomb = 0
+    //   if (newbombMap[y + 1 *dy].flat().includes(11) === false && undefined){
+    //     narebomb++
+    //     newbombMap[dx][dy] === narebomb
+    //   }
 
     if (newbombMap.flat().includes(11) === false) {
       for (let n = 0; n < 10; n++) {
@@ -112,6 +116,9 @@ const Home = () => {
                     style={{ backgroundPosition: `-${30 * cell - 30}px 0px` }}
                   />
                 )}
+                {/* <div className={styles.cell} /> */}
+
+                {/* {userInputs[x][y] === 0 && <div className={styles.topsell} key={`${x}-${y}`} />} */}
               </div>
             )),
           )}
