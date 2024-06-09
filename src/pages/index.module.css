@@ -137,3 +137,10 @@
   background-color: rgb(0 0 0);
   box-shadow: 5px 5px 5px rgb(255 254 254);
 }
+
+.cell2 {
+  float: left;
+  width: 10px;
+  height: 10px;
+  background-color: rgb(255 255 255);
+}

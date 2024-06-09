@@ -75,6 +75,7 @@ const Home = () => {
     //   }
     if (newbombMap.flat().includes(11) === true) {
       let nearbomb = 0;
+      const clickInfo = document.getElementById;
 
       for (const direction of directions) {
         const dx = direction[0];
@@ -87,10 +88,8 @@ const Home = () => {
       }
       newbombMap[x][y] === nearbomb;
 
-      console.log(nearbomb);
+      console.log(clickInfo);
     }
-    setBombMap(newbombMap);
-    console.log(newbombMap);
 
     if (newbombMap.flat().includes(11) === false) {
       for (let n = 0; n < 10; n++) {
@@ -134,7 +133,7 @@ const Home = () => {
                     style={{ backgroundPosition: `-${30 * cell - 30}px 0px` }}
                   />
                 )}
-                {bombMap[x][y] === 0 && <div className={styles.cell} />}
+                {/* {bombMap[x][y] === 0 && <div className={styles.cell} />} */}
 
                 {/* {userInputs[x][y] === 0 && <div className={styles.topsell} key={`${x}-${y}`} />} */}
               </div>
@@ -151,3 +150,4 @@ export default Home;
 // if (newbombMap[y + 1 * dy] !== undefined && newbombMap[y + 1 * dy][x + 1 * dx] === 11) {
 //   nearbomb += 1;
 // }
+// const clickInfo = document.getElementById
