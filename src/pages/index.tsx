@@ -75,7 +75,6 @@ const Home = () => {
     //   }
     if (newbombMap.flat().includes(11) === true) {
       let nearbomb = 0;
-      const clickInfo = document.getElementById;
 
       for (const direction of directions) {
         const dx = direction[0];
@@ -88,7 +87,7 @@ const Home = () => {
       }
       newbombMap[x][y] === nearbomb;
 
-      console.log(clickInfo);
+      console.log(nearbomb);
     }
 
     if (newbombMap.flat().includes(11) === false) {
@@ -105,6 +104,41 @@ const Home = () => {
     }
     setBombMap(newbombMap);
   };
+  // let bombs = 0;
+  // for (let y = 0; y < 8; y++) {
+  //   for (let x = 0; x < 8; x++) {
+  //     if (bombMap[y][x] === 0) {
+  //       for (const direction of directions) {
+  //         const dx = direction[0];
+  //         const dy = direction[1];
+
+  //         if (bombMap[y + 1 * dy] !== undefined && bombMap[y + 1 * dy][x + 1 * dx] === 11) {
+  //           bombs++;
+  //         }
+  //       }
+  //       bombMap[x][y] === bombs;
+  //     }
+  //   }
+  // }
+  for (let y = 0; y < 9; y++) {
+    for (let x = 0; x < 9; x++) {
+      if (bombMap[y][x] === 0) {
+        let nearBombs = 0;
+        for (const [dy, dx] of directions) {
+          if (
+            y + dy >= 0 &&
+            y + dy < 9 &&
+            x + dx >= 0 &&
+            x + dx < 9 &&
+            bombMap[y + dy][x + dx] === 11
+          ) {
+            nearBombs++;
+          }
+        }
+        bombMap[y][x] = nearBombs;
+      }
+    }
+  }
 
   // const [samplePos, setSamplePos] = useState(0);
   // console.log(samplePos);
