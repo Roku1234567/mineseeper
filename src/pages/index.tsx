@@ -160,16 +160,13 @@ const Home = () => {
                 key={`${x}-${y}`}
                 onClick={() => clickHandler(x, y)}
               >
-                {cell !== 0 && (
-                  <div
-                    className={styles.bombStyle}
-                    key={`${x}-${y}`}
-                    style={{ backgroundPosition: `-${30 * cell - 30}px 0px` }}
-                  />
-                )}
-                {/* {bombMap[x][y] === 0 && <div className={styles.cell} />} */}
-
-                {/* {userInputs[x][y] === 0 && <div className={styles.topsell} key={`${x}-${y}`} />} */}
+                <div
+                  className={styles.bombStyle}
+                  key={`${x}-${y}`}
+                  style={{ backgroundPosition: `-${30 * cell - 30}px 0px` }}
+                >
+                  {userInputs[x][y] === 0 && <div className={styles.cell} />}
+                </div>
               </div>
             )),
           )}
@@ -185,3 +182,10 @@ export default Home;
 //   nearbomb += 1;
 // }
 // const clickInfo = document.getElementById
+{
+  /* {bombMap[x][y] === 0 && <div className={styles.cell} />} */
+}
+
+{
+  /* {userInputs[x][y] === 0 && <div className={styles.topsell} key={`${x}-${y}`} />} */
+}
