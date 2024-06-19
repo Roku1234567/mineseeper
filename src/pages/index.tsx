@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './index.module.css';
+import { count } from 'console';
 const directions = [
   [-1, -1],
   [-1, 0],
@@ -24,15 +25,15 @@ const Home = () => {
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
   ]);
   const [userInputs, setUserInputs] = useState([
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [1, 1, 1, 1, 1, 1, 1, 0, 0],
+    [1, 1, 1, 1, 1, 1, 1, 0, 0],
+    [1, 1, 1, 1, 1, 1, 1, 0, 0],
+    [1, 1, 1, 1, 1, 1, 1, 0, 0],
+    [1, 1, 1, 1, 1, 1, 1, 0, 0],
+    [1, 1, 1, 1, 1, 1, 1, 0, 0],
+    [1, 1, 1, 1, 1, 1, 1, 0, 0],
+    [1, 1, 1, 1, 1, 1, 1, 0, 0],
+    [1, 1, 1, 1, 1, 1, 1, 0, 0],
   ]);
   const board = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -56,6 +57,9 @@ const Home = () => {
   // newBoard[y][x] = bomb;
 
   const clickHandler = (x: number, y: number) => {
+    const newuserInputs = structuredClone(userInputs);
+    newuserInputs[x][y] = 1;
+    setUserInputs(newuserInputs);
     // const newBoard = structuredClone(board);
     // newBoard[y][x] = bombcount;
 
@@ -64,6 +68,8 @@ const Home = () => {
     console.log(x, y);
     const newbombMap = structuredClone(bombMap);
     console.log(bombMap.flat());
+
+    console.log(userInputs);
     console.log(newbombMap.flat().includes(11));
     // for (const direction of directions) {
     //   const dx = direction[0];
@@ -120,6 +126,7 @@ const Home = () => {
   //     }
   //   }
   // }
+
   for (let y = 0; y < 9; y++) {
     for (let x = 0; x < 9; x++) {
       if (bombMap[y][x] === 0) {
@@ -135,7 +142,27 @@ const Home = () => {
             nearBombs++;
           }
         }
+
         bombMap[y][x] = nearBombs;
+        if (bombMap.flat().includes(11) === true) {
+          if (nearBombs === 0) {
+            bombMap[y][x] = 20;
+          }
+        }
+
+        // if (bombMap[y][x] === 0) {
+        //   let count = 0;
+        //   if (count == 0) {
+        //     if (nearBombs === 0) {
+        //       bombMap[y][x] = 20;
+        //     }
+        //   }
+        //   if (count === 0) {
+        //     {
+        //       count += 1;
+        //     }
+        //   }
+        // }
       }
     }
   }
@@ -160,13 +187,14 @@ const Home = () => {
                 key={`${x}-${y}`}
                 onClick={() => clickHandler(x, y)}
               >
-                <div
-                  className={styles.bombStyle}
-                  key={`${x}-${y}`}
-                  style={{ backgroundPosition: `-${30 * cell - 30}px 0px` }}
-                >
-                  {userInputs[x][y] === 0 && <div className={styles.cell} />}
-                </div>
+                {board[x][y] === 0 && (
+                  <div
+                    className={styles.bombStyle}
+                    style={{ backgroundPosition: `-${30 * cell - 30}px 0px` }}
+                  >
+                    {userInputs[x][y] === 0 && <div className={styles.cell} />}
+                  </div>
+                )}
               </div>
             )),
           )}
@@ -189,3 +217,6 @@ export default Home;
 {
   /* {userInputs[x][y] === 0 && <div className={styles.topsell} key={`${x}-${y}`} />} */
 }
+// key={`${x}-${y}`}
+// className={styles.bombStyle}
+//                     style={{ backgroundPosition: `-${30 * cell - 30}px 0px` }}
